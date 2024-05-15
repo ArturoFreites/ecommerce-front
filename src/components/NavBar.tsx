@@ -2,6 +2,7 @@ import { FaBasketShopping, FaCircleUser, FaGifts, FaHouseCircleCheck, FaShop, Fa
 import logo from "../assets/jema-logo.png"
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 function Navbar() {
 
@@ -17,25 +18,25 @@ function Navbar() {
         {
         id:0,
         nombre:"Minimarket",
-        ruta:"/",
+        ruta:"/minimarket",
         icon:<FaShop />
         },
         {
             id:1,
             nombre:"Regalería",
-            ruta:"/",
+            ruta:"/regaleria",
             icon:<FaGifts />
         },
         {
             id:2,
             nombre:"Catering",
-            ruta:"/",
+            ruta:"/catering",
             icon:<FaWineGlass/>
         },
         {
             id:3,
             nombre:"Mantenimiento del Hogar",
-            ruta:"/",
+            ruta:"/hogar",
             icon:<FaHouseCircleCheck />
         }
     ]
@@ -58,14 +59,14 @@ function Navbar() {
             <article className="max-lg:hidden w-screen py-8 flex items-center justify-center space-x-10 bg-principal text-gray-600">
                 {
                     rutas.map((ruta)=>(
-                        <div 
+                        <Link to={ruta.ruta} 
                             className={`hover:cursor-pointer flex items-center ${selected == ruta.id && "text-white font-bold"} `} 
                             key={ruta.id}
                             onClick={()=>setSelected(ruta.id)}
                         >
                             {ruta.icon}
                             <p className="pl-1">{ruta.nombre}</p>
-                        </div>
+                        </Link>
                     ))
                 }
             </article>

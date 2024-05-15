@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { menus } from "../../util/menuJson";
 
 function Home() {
@@ -5,7 +6,7 @@ function Home() {
         <section className="max-lg:grid-cols-1 w-screen grid grid-cols-2 justify-items-center items-center py-36 gap-14" >
             {
                 menus.map((menu)=>(
-                    <div 
+                    <Link to={menu.url}
                         className="max-lg:h-28 hover:cursor-pointer  hover:scale-105 transition-transform flex justify-center items-center w-4/6 h-44 rounded-md bg-cover bg-center" 
                         style={{backgroundImage: `url(${menu.imagen})`}}
                     >
@@ -14,7 +15,7 @@ function Home() {
                         >
                             {menu.nombre}
                         </h1>
-                    </div>
+                    </Link>
                 ))
             }
         </section>
